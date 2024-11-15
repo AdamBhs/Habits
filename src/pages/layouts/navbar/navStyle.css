@@ -1,0 +1,49 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon h1 {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icon .how-it-work {
+    display: flex;
+    padding-top: 4px;
+    cursor: pointer;
+    align-items: center;
+    gap: 4px;
+}
+
+.icon .how-it-work h5 {
+    font-weight: 500;
+    color: #666;
+}
+
+.mail-dark {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.mail-dark .mail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.mail-dark .mail p {
+    color: #666;
+    font-size: 14px;
+}
+

@@ -1,0 +1,5 @@
+This folder for :
+Static resources management
+Global styles and themes
+Fonts and typography
+Design tokens

@@ -1,0 +1,4 @@
+App configurations
+Environment settings
+API endpoints
+Constants

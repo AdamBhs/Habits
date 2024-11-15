@@ -1,0 +1,4 @@
+API integration
+External services
+Data handlers
+Backend communication

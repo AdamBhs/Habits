@@ -1,0 +1,64 @@
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.month {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    user-select: none;
+}
+
+.left, .right {
+    cursor: pointer;
+}
+
+.month h4 {
+    text-align: center;
+    width: 140px;
+    font-weight: 500;
+}
+
+.habit-table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.habit-table th, .habit-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.habit-table th {
+    background-color: #f5f5f5;
+    color: black;
+    font-weight: normal;
+}
+
+.habit-table th:first-child,
+.habit-table th:last-child {
+    color: blue;
+    font-weight: bold;
+}
+
+.habit-table td:first-child {
+    color: blue;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 16px;
+}
+
+.message-row {
+    text-align: center;
+    padding: 20px;
+    color: gray;
+    font-size: 16px;
+}
