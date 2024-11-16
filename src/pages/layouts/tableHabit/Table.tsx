@@ -1,6 +1,8 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import "./tableStyle.css";
 import { useState } from "react";
+import Button from "../../../components/Button";
+
 
 export default function Table() {
     const getDaysInMonth = (year: number, month: number) => {
@@ -16,6 +18,10 @@ export default function Table() {
         return result;
     }
 
+    const handleAddHabit = () => {
+        console.log("habit button clicked");
+    }
+
     const now = new Date();
 
     const monthNames = [
@@ -26,7 +32,6 @@ export default function Table() {
     const [month, setMonth] = useState(now.getMonth());
     const [year, setYear] = useState(now.getFullYear());
     const [days, setDays] = useState(getDaysInMonth(year, month));
-    
 
     const changeDateLeft = () => {
         let newMonthIndex = month - 1;
@@ -36,7 +41,7 @@ export default function Table() {
             newMonthIndex = 11;
             newYear -= 1;
         }
-        let days = getDaysInMonth(newYear, newMonthIndex);
+        const days = getDaysInMonth(newYear, newMonthIndex);
 
         setMonth(newMonthIndex);
         setYear(newYear);
@@ -51,7 +56,7 @@ export default function Table() {
             newMonthIndex = 0;
             newYear += 1;
         }
-        let days = getDaysInMonth(newYear, newMonthIndex);
+        const days = getDaysInMonth(newYear, newMonthIndex);
 
         setMonth(newMonthIndex);
         setYear(newYear);
@@ -66,33 +71,44 @@ export default function Table() {
                 <FaAngleRight className="right" onClick={changeDateRight}/>
                 
             </div>
-            <table className="habit-table">
-            <thead>
-                <tr>
-                    <th>Habits</th>
-                    
-                    {["T", "W", "T", "F", "S", "S", "M", "T", "W", "T", "F", "S", "S", "M", "T", "W", "T", "F", "S", "S", "M", "T", "W", "T", "F", "S", "S", "M"].map((day, index) => (
-                        <th key={`day-${index}`}>{day}</th>
-                    ))}
-                    <th>Goal</th>
-                    <th>Achieved</th>
-                </tr>
-                <tr>
-                    <th></th>
-                    
-                    {Array.from({ length: 31 }, (_, i) => (
-                        <th key={`date-${i}`}>{i + 1}</th>
-                    ))}
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colSpan={33} className="message-row">Create your first habit by clicking on + New Habit</td>
-                </tr>
-            </tbody>
-        </table>
+            <table>
+                <colgroup></colgroup>
+                <thead>
+                    <tr>
+                        <th rowSpan={2} className="ant-table-cell habit">Habits</th>
+                        {
+                            days.map(([, weekday], index) => (
+                                <th className="ant-weekday" key={index}>
+                                    {weekday}
+                                </th>
+                            ))
+                        }
+                        <th rowSpan={2} className="ant-table-cell goal">Goal</th>
+                        <th rowSpan={2} className="ant-table-cell arch">Achieved</th>
+                    </tr>
+                    <tr>
+                        {
+                            days.map(([day,], index) => (
+                                <th className="ant-number-day" key={index}>
+                                    {day}
+                                </th>
+                            ))
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colSpan={new Date(year, month+1, 0).getDate() + 3}>
+                            <div className="ant-create-habit">
+                                <text>Create your first habit by clicking on + New Habit </text>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div className="btn-container">
+                <Button onClick={handleAddHabit} name="New Habit"/>
+            </div>
         </div>
   )
 }
