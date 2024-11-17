@@ -67,3 +67,11 @@ tbody .ant-create-habit {
     font-size: 14px;
     
 }
+
+.ant-notes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+}

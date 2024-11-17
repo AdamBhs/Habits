@@ -22,3 +22,14 @@
   margin-left: 70px;
   margin-right: 70px;
 }
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1890ff;
+  border-radius: 6px;
+}
+

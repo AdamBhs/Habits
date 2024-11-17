@@ -1,8 +1,37 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import "./tableStyle.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../../components/Button";
+import Notes from "../notes/Notes";
 
+const NotesData = {
+    Notes: [
+        {
+            month: "November",
+            day: 17,
+            description: "azeazeaze",
+            year: 2024
+        },
+        {
+            month: "November",
+            day: 18,
+            description: "azeazeaze",
+            year: 2024
+        },
+        {
+            month: "December",
+            day: 25,
+            description: "Christmas",
+            year: 2024
+        },
+        {
+            month: "December",
+            day: 31,
+            description: "New Year's Eve",
+            year: 2024
+        }
+    ]
+}
 
 export default function Table() {
     const getDaysInMonth = (year: number, month: number) => {
@@ -32,6 +61,12 @@ export default function Table() {
     const [month, setMonth] = useState(now.getMonth());
     const [year, setYear] = useState(now.getFullYear());
     const [days, setDays] = useState(getDaysInMonth(year, month));
+    const [filteredNotes, setFilteredNotes] = useState(NotesData.Notes.filter(note => note.month === monthNames[month] && note.year === year));
+
+    useEffect(() => {
+        const filtered = NotesData.Notes.filter(note => note.month === monthNames[month] && note.year === year);
+        setFilteredNotes(filtered);
+    }, [month, year]);
 
     const changeDateLeft = () => {
         let newMonthIndex = month - 1;
@@ -62,7 +97,7 @@ export default function Table() {
         setYear(newYear);
         setDays(days);
     }
-
+    // TODO: bish n5dim il zyada mta3 Habit fil tableau
     return (
         <div className="table-container">
             <div className="month">
@@ -108,6 +143,10 @@ export default function Table() {
             </table>
             <div className="btn-container">
                 <Button onClick={handleAddHabit} name="New Habit"/>
+            </div>
+
+            <div className="ant-notes">
+                <Notes notes={filteredNotes}/>
             </div>
         </div>
   )
