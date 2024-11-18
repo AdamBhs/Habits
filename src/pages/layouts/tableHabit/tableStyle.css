@@ -40,7 +40,16 @@ table thead .ant-table-cell {
     width: 60px;
 }
 
-table thead .ant-table-cell.habit {
+/* add habit Style*/
+table tbody .ant-habit {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 24px;
+    width: 60px;
+}
+
+.ant-habit.name,
+table thead .habit {
     width: 126px;
 }
 
@@ -52,21 +61,28 @@ table thead .ant-table-cell.habit {
 }
 
 .ant-number-day {
+    height: 22px;
     font-weight: 500;
     font-size: 14px;
     width: 24px;
-    height: 22px;
     padding: 14px 4px;
 }
 
-tbody .ant-create-habit {
+.ant-number-habit {
+    width: 24px;
+    font-size: 14px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* tbody .ant-create-habit {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 150px;
     font-size: 14px;
     
-}
+} */
 
 .ant-notes {
     display: flex;
@@ -75,3 +91,4 @@ tbody .ant-create-habit {
     width: 100%;
     margin-top: 60px;
 }
+

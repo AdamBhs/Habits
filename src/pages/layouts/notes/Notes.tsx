@@ -4,7 +4,6 @@ import Note from "../../../components/Note";
 import "./styleNotes.css";
 
 
-
 interface NoteTypes {
     month: string;
     day: number;

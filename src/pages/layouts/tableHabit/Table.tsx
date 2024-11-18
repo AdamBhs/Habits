@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import "./tableStyle.css";
 import { useEffect, useState } from "react";
@@ -32,6 +33,11 @@ const NotesData = {
         }
     ]
 }
+
+// interface HabitType {
+//     name: string;
+//     goal: number;
+// }
 
 export default function Table() {
     const getDaysInMonth = (year: number, month: number) => {
@@ -104,10 +110,10 @@ export default function Table() {
                 <FaAngleLeft className="left" onClick={changeDateLeft}/>
                 <h4>{monthNames[month]}, {year}</h4>
                 <FaAngleRight className="right" onClick={changeDateRight}/>
-                
             </div>
             <table>
-                <colgroup></colgroup>
+                <colgroup>
+                </colgroup>
                 <thead>
                     <tr>
                         <th rowSpan={2} className="ant-table-cell habit">Habits</th>
@@ -135,7 +141,16 @@ export default function Table() {
                     <tr>
                         <td colSpan={new Date(year, month+1, 0).getDate() + 3}>
                             <div className="ant-create-habit">
-                                <text>Create your first habit by clicking on + New Habit </text>
+                                <th className="ant-habit name">gym</th>
+                                {
+                                    days.map(() => (
+                                        <th className="ant-number-habit">
+                                            1
+                                        </th>
+                                    ))
+                                }
+                                <th className="ant-habit">16</th>
+                                <th className="ant-habit">16</th>
                             </div>
                         </td>
                     </tr>
