@@ -9,6 +9,13 @@ export default function NavBar() {
           <div className="how-it-work">
             <h5>How it works</h5>
             <FaAngleDown />
+
+            <div className="dropdown-content">
+              <a href="#">How to use DailyHabits</a>
+              <a href="#">Why set goals</a>
+              <a href="#">When to make notes</a>
+              <a href="#">When to archive a goal</a>
+            </div>
           </div>
         </div>
 
